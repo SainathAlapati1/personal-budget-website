@@ -12,6 +12,7 @@ import { AngularFireModule } from '@angular/fire/compat';
 import { AngularFireAuthModule } from '@angular/fire/compat/auth';
 import { LoginModule } from './budget-planner/login/login.module';
 import { RouterModule } from '@angular/router';
+import { provideMomentDateAdapter } from '@angular/material-moment-adapter';
 
 @NgModule({
   declarations: [AppComponent],
@@ -31,7 +32,7 @@ import { RouterModule } from '@angular/router';
     AngularFireAuthModule,
     RouterModule,
   ],
-  providers: [provideClientHydration(), provideAnimationsAsync()],
+  providers: [provideClientHydration(), provideAnimationsAsync(),provideMomentDateAdapter(undefined, {useUtc: true})],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
   bootstrap: [AppComponent],
 })

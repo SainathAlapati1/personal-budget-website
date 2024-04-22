@@ -1,13 +1,11 @@
 import { Component } from '@angular/core';
-import { MatIconModule } from '@angular/material/icon';
-import { SideNavComponent } from '../side-nav/side-nav.component';
-import { CommonModule } from '@angular/common';
+import { MatDialog } from '@angular/material/dialog';
 import { Router } from '@angular/router';
+import { AddIncomeComponent } from './add-income/add-income.component';
+import { AddExpenseComponent } from './add-expense/add-expense.component';
 
 @Component({
   selector: 'app-dashboard',
-  standalone: true,
-  imports: [MatIconModule, SideNavComponent, CommonModule],
   templateUrl: './dashboard.component.html',
   styleUrl: './dashboard.component.scss',
 })
@@ -31,13 +29,25 @@ export class DashboardComponent {
   //Total
   totalCurrentMonthIncome = 2000;
   totalCurrentMonthExpense = 1500;
-  constructor(public router: Router) {}
+  constructor(public router: Router,public dialog: MatDialog) {}
 
   onIncome() {
-    this.router.navigate(['/budget-planner/income']);
+   // this.router.navigate(['/budget-planner/income']);
+   const dialogRef = this.dialog.open(AddIncomeComponent, {
+    data: {},
+  });
+
+  dialogRef.afterClosed().subscribe(result => {
+  });
   }
   onExpense() {
-    this.router.navigate(['/budget-planner/expense']);
+    const dialogRef = this.dialog.open(AddExpenseComponent, {
+      data: {},
+    });
+  
+    dialogRef.afterClosed().subscribe(result => {
+    });
+   // this.router.navigate(['/budget-planner/expense']);
   }
   onTodo() {
     this.router.navigate(['/budget-planner/todo']);

@@ -1,6 +1,7 @@
 <app-side-nav></app-side-nav>
+<div class="dashboard">
 <div class="container">
-    <div class="card-container">
+  <div class="card-container">
         <!-- Income Card -->
         <div class="card">
             <div class="card-header">
@@ -19,7 +20,7 @@
                     <h3>Current Month</h3>
                     <p>{{ currentMonthIncome }}</p>
                 </div>
-                <button class="button" (click)="onIncome()">View</button> 
+                <button class="button" (click)="onIncome()">Add</button> 
             </div>
         </div>
 
@@ -42,11 +43,11 @@
                 <p>{{ currentMonthExpense }}</p>
               </div>
             </div>
-            <button class="button" (click)="onExpense()">View</button> 
+            <button class="button" (click)="onExpense()">Add</button> 
         </div>
 
         <!-- To DO Trans -->
-        <div class="card">
+        <!-- <div class="card">
             <div class="card-header">
               <span class="icon todo-icon"><mat-icon>assignment</mat-icon></span>
               <h2>To Do Transactions</h2>
@@ -61,7 +62,7 @@
               </li>
             </ul>
             <button class="button" (click)="onTodo()">View</button> 
-          </div>
+          </div> -->
         <!-- Total -->
 
         <div class="card">
@@ -89,5 +90,25 @@
               </div>
             </div>
           </div>
+
+          <div class="card chart-width">
+            <div class="card-header">
+              <span class="icon expense-icon"><mat-icon>money_off</mat-icon></span>
+              <h2>Bar chart</h2>
+            </div>
+            <div>
+              <app-bar></app-bar>
+            </div>
+          </div>
+          <div class="card chart-width">
+            <div class="card-header">
+              <span class="icon expense-icon"><mat-icon>money_off</mat-icon></span>
+              <h2>Pie chart</h2>
+            </div>
+            <div>
+              <app-pie></app-pie>
+            </div>
+          </div>
     </div>
 </div>
+

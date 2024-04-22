@@ -4,8 +4,6 @@ import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-side-nav',
-  standalone: true,
-  imports: [MatIconModule],
   templateUrl: './side-nav.component.html',
   styleUrl: './side-nav.component.scss',
 })
